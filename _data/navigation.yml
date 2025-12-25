@@ -1,5 +1,12 @@
 header:
   - titles:
+      en      : &EN       Project
+      zh-Hans : &ZH_HANS  项目展示
+      zh      : *ZH_HANS
+      zh-CN   : *ZH_HANS
+    url: /project.html
+
+  - titles:
       # @start locale config
       en      : &EN       Archive
       en-GB   : *EN

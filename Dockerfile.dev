@@ -1,4 +1,4 @@
-FROM ruby:2.7
+FROM ruby:3.2
 
 # Set default locale for the environment
 ENV LC_ALL C.UTF-8
@@ -6,11 +6,12 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 
 # throw errors if Gemfile has been modified since Gemfile.lock
-RUN bundle config --global frozen 1
+# RUN bundle config --global frozen 1
 
 WORKDIR /usr/src/app
 
-COPY Gemfile Gemfile.lock jekyll-text-theme.gemspec ./
+COPY Gemfile jekyll-text-theme.gemspec ./
+RUN gem update --system
 RUN bundle install
 
 EXPOSE 4000
