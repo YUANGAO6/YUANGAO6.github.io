@@ -39,6 +39,20 @@ data:
           image:
             src: /assets/images/04water.png
 
+    - title: "Who We Are"
+      excerpt: '<img src="/assets/images/logo/logo.png" style="width: 120px; display: block; margin: 0 auto 15px; filter: brightness(1.2) contrast(1.1);">With precision technology at our core, we integrate diverse needs and break traditional boundaries to create safer, more efficient, and warmer health solutions for everyone—from teenagers and special groups to fitness enthusiasts.'
+      theme: dark
+      background_color: "#2c3e50"
+      background_image:
+        src: /assets/images/03team.jpg
+      children:
+        - title: "Mission"
+          excerpt: "By fusing precision technology with human care, we transform the tedious, high-risk task of weight loss into a safe, accurate, and immersive journey. We are dedicated to building a closed-loop health ecosystem connecting exercise, diet, and metabolism for obese teens and health-conscious individuals worldwide."
+        - title: "Vision"
+          excerpt: "With precision technology at our core, we integrate diverse needs and break traditional boundaries to create safer, more efficient, and warmer health solutions for everyone—from teenagers and special groups to fitness enthusiasts."
+        - title: "Values"
+          excerpt: "Tech for Good: Solving real-world pain points.<br>People First: Genuine needs first.<br>Precision & Truth: Data-driven results.<br>Boundless Exploration: Seeking better solutions."
+
     - title: "Our Story (Brand & Mission)"
       excerpt: "Driven by love, guided by science. The journey of Team HexTech."
       theme: dark
@@ -53,17 +67,32 @@ data:
         - title: "Team HexTech"
           excerpt: "We are 'HexTech' - implying that technology (Tech) can be as magical as a spell (Hex). Composed of 3 high school students and 1 advisor, we combine mechanical design, coding, and marketing to make health accessible."
           image:
-            src: /assets/images/03team.jpg
+            src: /assets/images/logo/logo.png
+            style: "filter: brightness(1.3);"
         - title: "Our Mission"
           excerpt: "To transform teen obesity intervention from a 'painful task' into an 'engaging journey'. We aim to build a closed-loop system connecting Exercise, Diet, and Metabolism."
           image:
             src: /assets/images/03team.jpg
 
+    - title: "System Design"
+      excerpt: "A comprehensive architecture integrating IoT sensors, AI processing, and immersive feedback loops."
+      theme: dark
+      background_color: "#2c3e50"
+      background_image:
+        src: /assets/images/09system_design_eng.png
+      children:
+        - title: "Data Collection Layer"
+          excerpt: "Utilizing advanced sensors to gather real-time physiological data including heart rate, SpO2, and breath acetone levels."
+        - title: "AI Processing Core"
+          excerpt: "Cloud-based algorithms analyze metabolic types and generate personalized intervention plans based on user data."
+        - title: "Immersive Feedback"
+          excerpt: "Delivering real-time adjustments to the treadmill environment (slope, resistance, visuals) for optimal training efficiency."
+
     - title: "The Innovation Model"
       excerpt: "A fusion of mechanical engineering, AI algorithms, and immersive tech."
       theme: light
       background_image:
-        src: /assets/images/01hero_banner.png
+        src: /assets/images/09system_design_eng.png
       children:
         - title: "Water-Surrounded<br>Structure"
           excerpt: "Safety First: Our unique water base utilizes buoyancy to reduce knee pressure by 40% and uses water resistance for efficient muscle training. A game-changer for obese teens."
@@ -95,18 +124,25 @@ data:
         - title: "Next Steps"
           excerpt: "Seeking $1.5M seed funding for product mass production (molds), marketing (pilot programs), and R&D (algorithm optimization)."
 
-    - title: "Connect with HexTech"
-      excerpt: "Join us in building a healthier future."
-      theme: light
-      background_image:
-        src: /assets/images/01hero_banner.png
-      actions:
-        - text: "Watch Demo Video"
-          type: outline-primary
-          url: "https://www.bilibili.com/video/BV1GJ411x7h7/?share_source=copy_web&vd_source=88426f80852072222a96e4e076dc3967"
-        - text: "Download Whitepaper"
-          type: outline-info
-          url: "/intro/HexTech_Whitepaper.pdf"
+    - title: "Connect"
+      theme: dark
+      background_color: "#2c3e50"
+      children:
+        - title: "Contact"
+          excerpt: "Email: gao_yuan0624@163.com"
+        - title: "Video"
+          excerpt: "Watch our story."
+          actions:
+            - text: "Watch on Bilibili"
+              type: primary
+              url: "https://www.bilibili.com/video/BV1GJ411x7h7/?share_source=copy_web&vd_source=88426f80852072222a96e4e076dc3967"
+        - title: "Download White Paper"
+          excerpt: "Get the full technical details."
+          actions:
+            - text: "Download PDF"
+              type: success
+              url: "/intro/HexTech_Whitepaper.pdf"
+      content: "<br><br><small>Copyright © 2025 HexTech. All rights reserved.</small>"
 ---
 
 
@@ -357,6 +393,116 @@ document.addEventListener("DOMContentLoaded", function() {
     html {
       scroll-behavior: smooth;
     }
+
+    /* 8. Increase Section Title Font Size */
+    .hero__content h3 {
+      font-size: 3rem !important; /* Increase from default (usually around 2rem) */
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* 9. Force vertical layout (single column) for Who We Are section cards ONLY */
+    /* Use nth-of-type to target specifically the 2nd section (Who We Are) which is usually the 2nd hero--dark */
+    /* Alternatively, we can assume Who We Are is the only one with h4 titles that need this specific styling */
+    
+    /* Target the specific grid in Who We Are section by its position or content structure */
+    /* Assuming Who We Are is the 2nd section in the list of sections rendered as hero--dark */
+    
+    /* Let's try to target by the presence of h4 inside (since Our Story uses h4 too, we need to be careful) */
+    /* Since we can't easily add classes to the HTML, we will use :nth-of-type selector */
+    /* The structure is .heros > section.hero */
+    
+    /* "Who We Are" is the 2nd section (index 2) */
+    #hero-2 .grid--p-3 .cell {
+      flex: 0 0 100% !important; /* Force full width */
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 0 !important; /* No spacing between stacked items */
+      padding-bottom: 0 !important; /* Remove cell padding */
+      text-align: left !important; /* Align text to the left */
+    }
+    
+    /* Target the titles inside the cells to align left */
+    #hero-2 .grid--p-3 .cell h4 {
+      text-align: left !important;
+      margin-bottom: 0 !important; /* No gap between title and text */
+      margin-top: 0 !important;
+      font-size: 1.8rem !important; /* Larger font size for Mission/Vision/Values titles */
+      font-weight: 700;
+    }
+
+    /* Target the paragraph text inside the cells */
+    #hero-2 .grid--p-3 .cell p {
+      text-align: left !important;
+      margin-bottom: 0 !important; /* Remove excess bottom margin */
+      margin-top: 0 !important;
+      line-height: 1.2; /* Tighter line height */
+    }
+    
+    /* Ensure the container allows wrapping so they stack */
+    #hero-2 .grid--p-3 {
+      display: flex !important;
+      flex-wrap: wrap !important;
+      flex-direction: column !important; /* Explicitly stack them */
+      align-items: flex-start !important; /* Left align the stacked cards container */
+      padding-top: 0 !important; /* Reduce top padding */
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    
+    /* Restore normal grid behavior for Our Story (Section 3) */
+    /* Our Story is #hero-3 */
+    /* User requested "1*3" layout -> 3 columns in 1 row */
+    #hero-3 .grid--p-3 {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row !important; /* Force row direction */
+        justify-content: center;
+        align-items: stretch;
+    }
+    
+    #hero-3 .grid--p-3 .cell {
+        flex: 0 0 33.333% !important; 
+        width: 33.333% !important;
+        max-width: 33.333% !important;
+        margin-bottom: 2rem; 
+        text-align: left;
+    }
+    
+    /* Center titles in Our Story section only */
+    #hero-3 .grid--p-3 .cell h4 {
+        text-align: center !important;
+    }
+    
+    /* Center text for Connect section (Section 7) */
+    #hero-7 .grid--p-3 .cell {
+        text-align: center !important;
+        align-items: center !important;
+    }
+    
+    #hero-7 .grid--p-3 .cell h4,
+    #hero-7 .grid--p-3 .cell p {
+        text-align: center !important;
+    }
+    
+    /* Ensure the copyright text at the bottom is also centered */
+    #hero-7 .hero__content > p {
+         text-align: center !important;
+    }
+    
+    /* Ensure responsiveness: stack on mobile */
+    @media (max-width: 768px) {
+        #hero-3 .grid--p-3 .cell {
+            flex: 0 0 100% !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+    }
+    
+    /* Remove padding from the grid container itself if needed */
+    .hero--dark .grid--container {
+        padding-bottom: 0 !important;
+    }
   </style>
 
 <script>
@@ -368,7 +514,7 @@ document.addEventListener("DOMContentLoaded", function() {
       logoContainer.className = 'custom-logo';
       logoContainer.innerHTML = `
         <a href="/project.html" style="display: block;">
-          <img src="/assets/images/08logo.png" alt="HexTech Logo" style="width: 120px; height: auto; display: block;">
+          <img src="/assets/images/logo/logo.png" alt="HexTech Logo" style="width: 120px; height: auto; display: block; filter: brightness(1.2) contrast(1.1);">
         </a>
       `;
       
@@ -380,5 +526,89 @@ document.addEventListener("DOMContentLoaded", function() {
       
       headerOverlay.appendChild(logoContainer);
     }
+
+    // --- Add Fixed Navigation Menu ---
+    const navContainer = document.createElement('div');
+    navContainer.className = 'custom-nav-menu';
+    navContainer.innerHTML = `
+      <div class="menu-trigger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="menu-items">
+        <li><a href="#hero-1">Why HexTech?</a></li>
+        <li><a href="#hero-2">Who We Are</a></li>
+        <li><a href="#hero-3">Our Story</a></li>
+        <li><a href="#hero-4">System Design</a></li>
+        <li><a href="#hero-5">Innovation Model</a></li>
+        <li><a href="#hero-6">Future & Impact</a></li>
+        <li><a href="#hero-7">Connect</a></li>
+      </ul>
+    `;
+    
+    document.body.appendChild(navContainer);
   });
 </script>
+
+<style>
+  /* --- Custom Navigation Menu Styles --- */
+  .custom-nav-menu {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 1000;
+  }
+
+  .custom-nav-menu .menu-trigger {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+    backdrop-filter: blur(5px);
+  }
+
+  .custom-nav-menu .menu-trigger:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .custom-nav-menu .menu-items {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 10px 0;
+    list-style: none;
+    width: 200px;
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+  }
+
+  .custom-nav-menu:hover .menu-items {
+    display: block; /* Show on hover */
+  }
+
+  .custom-nav-menu .menu-items li {
+    margin: 0;
+  }
+
+  .custom-nav-menu .menu-items li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+  }
+
+  .custom-nav-menu .menu-items li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+</style>
