@@ -135,7 +135,7 @@ data:
           actions:
             - text: "Watch on Bilibili"
               type: primary
-              url: "https://www.bilibili.com/video/BV1GJ411x7h7/?share_source=copy_web&vd_source=88426f80852072222a96e4e076dc3967"
+              url: "https://www.bilibili.com/video/BV1zRiMB5E7m/?share_source=copy_web&vd_source=88426f80852072222a96e4e076dc3967"
         - title: "Download White Paper"
           excerpt: "Get the full technical details."
           actions:
